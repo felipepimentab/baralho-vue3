@@ -1,27 +1,32 @@
-// import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import newDeck from '@/utils/newDeck'
 
 export const useCardStore = defineStore('cards', () => {
-  let drawableCards: Deck = [];
-  const playedCards: Deck = [];
+  const drawableCards = ref(newDeck as Deck);
+  const playedCards= ref([] as Deck);
 
   function resetDeck() {
-    drawableCards = newDeck;
+    console.group('Reset')
+    console.log('antes:', playedCards)
+    drawableCards.value = newDeck as Deck;
+    playedCards.value = [];
+    console.log('depois:', playedCards)
+    console.groupEnd();
   };
 
   function drawCard() {
-    if (drawableCards.length>0) {
+    if (drawableCards.value.length>0) {
       // selects a position on the drawable cards array
-      const cardPosition = Math.floor(Math.random()*drawableCards.length);
+      const cardPosition = Math.floor(Math.random()*drawableCards.value.length);
       // gets the card from that position and removes it from the array
-      const randomCard = drawableCards[cardPosition];
-      drawableCards.splice(cardPosition, 1);
+      const randomCard = drawableCards.value[cardPosition];
+      drawableCards.value.splice(cardPosition, 1);
 
       // adds the selected card to the beggining of the played cards array
-      playedCards.reverse();
-      playedCards.push(randomCard);
-      playedCards.reverse();
+      playedCards.value.reverse();
+      playedCards.value.push(randomCard);
+      playedCards.value.reverse();
     }
   }
 

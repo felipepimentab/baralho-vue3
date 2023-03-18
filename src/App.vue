@@ -23,6 +23,10 @@ import PageHeader from '@/components/common/PageHeader.vue';
 .baralho {
   display: flex;
   flex-direction: column;
+  height: 100vh;
   width: 100%;
+  background-color: $main-dark;
+  font-family: $font-sans;
+  color: $secondary-dark;
 }
 </style>
