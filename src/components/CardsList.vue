@@ -14,10 +14,10 @@ const cards = useCardStore().playedCards;
         :key="card.letter"
         class="card"
         >
+        <div :class="`bg bg--${colorOf(card.suit)}`" />
         <SvgComponent
           :icon="`Card${capitalize(card.suit)}`"
           class="card__suit"
-          :class="`bg bg--${colorOf(card.suit)}`"
         />
         <span class="card__letter">
           {{ card.letter }}
@@ -35,7 +35,7 @@ const cards = useCardStore().playedCards;
 @import '../assets/scss/normalize';
 @import '../assets/scss/variables';
 .cards-list {
-  margin: 0 1rem;
+  margin: 0 $side-spacing;
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
@@ -49,9 +49,10 @@ const cards = useCardStore().playedCards;
 
 .card {
   padding: 0.5rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  column-gap: 0.5rem;
+  column-gap: 1.5rem;
   position: relative;
   
   &:first-child {
@@ -62,12 +63,32 @@ const cards = useCardStore().playedCards;
     height: 4rem;
     width: 4rem;
     fill: white;
+    position: absolute;
+    left: -3px;
   }
   
   &__letter {
+    grid-column-start: 2;
     font-size: 2rem;
     font-family: $card-font;
     font-weight: bold;
+  }
+
+  .bg {
+    grid-column-start: 1;
+    height: 4rem;
+    width: 2.5rem;
+    top: 0.5rem;
+    left: 1.25rem;
+    border-radius: 0.25rem;
+    
+    &--red {
+      background-color: red;
+    }
+
+    &--black {
+      background-color: black;
+    }
   }
 }
 </style>

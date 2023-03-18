@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import { RouterView, useRoute } from 'vue-router';
+import { computed } from 'vue';
 import PageFooter from '@/components/common/PageFooter.vue';
 import PageHeader from '@/components/common/PageHeader.vue';
+
+const route = useRoute();
+const currentView = computed(() => route.name);
 </script>
 
 <template>
   <div class="baralho">
     <PageHeader />
     <RouterView />
-    <PageFooter />
+    <PageFooter v-if="currentView === 'home'" />
   </div>
 </template>
 
@@ -23,10 +27,15 @@ import PageHeader from '@/components/common/PageHeader.vue';
 .baralho {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  width: 100vw;
   background-color: $main-dark;
   font-family: $font-sans;
   color: $secondary-dark;
+}
+
+html {
+  overflow: hidden;
 }
 </style>

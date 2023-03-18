@@ -5,9 +5,9 @@ const store = useCardStore();
 function draw() {
   store.drawCard();
 };
-function reset() {
+/* function reset() {
   store.resetDeck();
-}
+} */
 </script>
 
 <template>
@@ -24,7 +24,7 @@ function reset() {
         Tirar carta
       </span>
     </button>
-    <button
+    <!-- <button
       class="footer__reset"
       @click="reset"
     >
@@ -32,7 +32,7 @@ function reset() {
         icon="Reset"
         class="footer__reset__icon"
       />
-    </button>
+    </button> -->
   </footer>
 </template>
 
@@ -47,15 +47,17 @@ function reset() {
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 0.5rem 1rem 1.5rem;
+  padding: 0.5rem $side-spacing 1.5rem;
   display: grid;
-  grid-template-columns: 1fr auto;
+  /* grid-template-columns: 1fr auto; */
+  grid-template-columns: 1fr;
   column-gap: 1rem;
   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
 
   &__draw {
     background-color: $accent-dark;
     padding: 0.5rem;
+    font-size: 1.25rem;
     border-radius: 0.5rem;
     color: $secondary-dark;
     font-weight: bold;

@@ -12,7 +12,7 @@ const cards = useCardStore().playedCards;
       v-if="cards.length === 0"
       class="main__text"
     >
-      Comece clicando no botão abaixo para tirar uma carta.
+      Comece clicando no botão abaixo para tirar uma carta. Recarregue a página para recomeçar.
     </h2>
     <PickedCard v-if="cards.length>0" />
     <CardsList v-if="cards.length>1" />
@@ -20,12 +20,20 @@ const cards = useCardStore().playedCards;
 </template>
 
 <style lang="scss" scoped>
+@import '../assets/scss/breakpoints';
+@import '../assets/scss/colors';
+@import '../assets/scss/container';
+@import '../assets/scss/fonts';
+@import '../assets/scss/normalize';
+@import '../assets/scss/variables';
 .main {
   min-height: 100%;
   height: fit-content;
+  position: sticky;
+  top: -2rem;
 
   &__text {
-    margin: 0 1rem;
+    margin: 0 $side-spacing;
   }
 }
 </style>

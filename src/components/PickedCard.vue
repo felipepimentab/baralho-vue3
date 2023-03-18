@@ -30,7 +30,7 @@ const card = useCardStore().playedCards;
 @import '../assets/scss/normalize';
 @import '../assets/scss/variables';
 .card {
-  margin: 1rem;
+  margin: 1rem $side-spacing;
   padding: 1rem 2rem;
   border-radius: 0.5rem;
   background-color: $secondary-dark;

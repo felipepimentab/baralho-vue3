@@ -18,6 +18,14 @@ $border-1: 0.06rem;
 $border-2: 0.12rem;
 $border-button: 0.09375rem;
 
+// -- Content width
+$max-width-mobile: 400px;
+$max-width-desktop: 1200px;
+
+// -- Padding Size
+// Ex: padding: 0 $side-spacing;
+$side-spacing: max(1.5rem, calc(50vw - $max-width-mobile/2));
+
 /*
  * --- Fonts
 */
