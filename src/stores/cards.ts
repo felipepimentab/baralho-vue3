@@ -7,12 +7,8 @@ export const useCardStore = defineStore('cards', () => {
   const playedCards= ref([] as Deck);
 
   function resetDeck() {
-    console.group('Reset')
-    console.log('antes:', playedCards)
     drawableCards.value = newDeck as Deck;
     playedCards.value = [];
-    console.log('depois:', playedCards)
-    console.groupEnd();
   };
 
   function drawCard() {
