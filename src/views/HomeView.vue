@@ -14,8 +14,8 @@ const cards = useCardStore().playedCards;
     >
       Comece clicando no botão abaixo para tirar uma carta. Recarregue a página para recomeçar.
     </h2>
-    <PickedCard v-if="cards.length>0" />
-    <CardsList v-if="cards.length>1" />
+    <PickedCard v-if="cards.length > 0" />
+    <CardsList v-if="cards.length > 1" />
   </main>
 </template>
 
@@ -35,5 +35,18 @@ const cards = useCardStore().playedCards;
   &__text {
     margin: 0 $side-spacing;
   }
+}
+
+/* 
+ * Transition
+ */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

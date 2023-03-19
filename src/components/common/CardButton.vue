@@ -5,45 +5,30 @@ const store = useCardStore();
 function draw() {
   store.drawCard();
 };
-/* function reset() {
-  store.resetDeck();
-} */
 </script>
 
 <template>
-  <footer class="footer">
+  <div
+    class="button"
+    >
     <button
-      class="footer__draw"
+      class="button__draw"
       @click="draw"
     >
       <SvgComponent
-        icon="Draw"
-        class="footer__draw__icon"
+      icon="Draw"
+      class="button__draw__icon"
       />
-      <span class="footer__draw__text">
+      <span class="button__draw__text">
         Tirar carta
       </span>
     </button>
-    <!-- <button
-      class="footer__reset"
-      @click="reset"
-    >
-      <SvgComponent
-        icon="Reset"
-        class="footer__reset__icon"
-      />
-    </button> -->
-  </footer>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/scss/breakpoints';
-@import '../../assets/scss/colors';
-@import '../../assets/scss/container';
-@import '../../assets/scss/fonts';
-@import '../../assets/scss/normalize';
-@import '../../assets/scss/variables';
-.footer {
+@import '@/assets/_global';
+.button {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -65,15 +50,21 @@ function draw() {
     align-items: center;
     justify-content: center;
     column-gap: 0.5rem;
-    
-    &:focus {
-      outline: none;
-    }
 
     &__icon {
       width: 1.5rem;
       height: 1.5rem;
       fill: $secondary-dark;
+    }
+    
+    &:focus,
+    &:hover {
+      outline: none;
+      color: $white;
+
+      &__icon {
+        fill: $white;
+      }
     }
   }
 

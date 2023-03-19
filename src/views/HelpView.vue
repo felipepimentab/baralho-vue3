@@ -17,10 +17,8 @@
 .help {
   padding: 0 $side-spacing 6rem;
   height: 100%;
-  max-height: calc(100vh - 68px);
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
-  overflow-y: auto;
 }
 </style>

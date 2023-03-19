@@ -6,12 +6,19 @@ const cards = useCardStore().playedCards;
 </script>
 
 <template>
-  <section class="cards-list">
-    <h3 class="cards-list__title">Histórico de cartas</h3>
-    <ul class="list">
+  <section class="cards">
+    <Transition name="slide-fade" appear>
+      <h3 class="cards__title">Histórico de cartas</h3>
+    </Transition>
+    <Transition name="fade" appear>
+    <TransitionGroup
+      tag="ul"
+      name="fade"
+      class="cards__list"
+    >
       <li
-        v-for="card in cards"
-        :key="card.letter"
+        v-for="card in cards.slice(1)"
+        :key="(card.name as string)"
         class="card"
         >
         <div :class="`bg bg--${colorOf(card.suit)}`" />
@@ -23,7 +30,8 @@ const cards = useCardStore().playedCards;
           {{ card.letter }}
         </span>
       </li>
-    </ul>
+    </TransitionGroup>
+    </Transition>
   </section>
 </template>
 
@@ -34,8 +42,8 @@ const cards = useCardStore().playedCards;
 @import '../assets/scss/fonts';
 @import '../assets/scss/normalize';
 @import '../assets/scss/variables';
-.cards-list {
-  margin: 0 $side-spacing;
+.cards {
+  margin: 0 $side-spacing 78px;
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
@@ -45,19 +53,19 @@ const cards = useCardStore().playedCards;
     font-weight: bold;
     padding: 0 0.5rem;
   }
+
+  &__list {
+    position: relative;
+  }
 }
 
 .card {
   padding: 0.5rem;
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
   align-items: center;
   column-gap: 1.5rem;
+  width: fit-content;
   position: relative;
-  
-  &:first-child {
-    display: none;
-  }
   
   &__suit {
     height: 4rem;
@@ -90,5 +98,41 @@ const cards = useCardStore().playedCards;
       background-color: black;
     }
   }
+}
+
+/**
+ * Transitions
+ */
+
+ // Fade
+.fade-move,
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: rotate(45deg) scaleY(4) translate(0, -40px);
+}
+
+.fade-leave-active {
+  position: absolute;
+}
+
+// Fade-slide
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-40px);
+  opacity: 0;
 }
 </style>

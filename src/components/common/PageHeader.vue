@@ -15,26 +15,28 @@ const currentView = computed(() => route.name);
     <h1 class="header__title">
       Baralho
     </h1>
-    <router-link
-      v-if="currentView === 'home'"
-      :to="{ name: 'help' }"
-      class="header__help"
-    >
-      <SvgComponent
-        icon="Help"
-        class="header__help__icon"
-      />
-    </router-link>
-    <router-link
-      v-else
-      :to="{ name: 'home' }"
-      class="header__help"
-    >
-      <SvgComponent
-        icon="Return"
-        class="header__help__icon"
-      />
-    </router-link>
+    <Transition name="fade" mode="out-in">
+      <router-link
+        v-if="currentView === 'home'"
+        :to="{ name: 'help' }"
+        class="header__help"
+        >
+        <SvgComponent
+          icon="Help"
+          class="header__help__icon"
+        />
+      </router-link>
+      <router-link
+        v-else
+        :to="{ name: 'home' }"
+        class="header__help"
+      >
+        <SvgComponent
+          icon="Return"
+          class="header__help__icon"
+        />
+      </router-link>
+    </Transition>
   </header>
 </template>
 
@@ -46,8 +48,6 @@ const currentView = computed(() => route.name);
 @import '../../assets/scss/normalize';
 @import '../../assets/scss/variables';
 .header {
-  position: sticky;
-  top: 0;
   width: 100%;
   padding: 1rem $side-spacing;
   background-color: $main-dark;
@@ -55,6 +55,31 @@ const currentView = computed(() => route.name);
   grid-template-columns: auto 1fr auto;
   align-items: center;
   column-gap: 0.5rem;
+
+  &__draw {
+    background-color: $accent-dark;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+    color: $secondary-dark;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.5rem;
+    position: sticky;
+    top: 1rem;
+    
+    &:focus {
+      outline: none;
+    }
+
+    &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: $secondary-dark;
+    }
+  }
 
   &__icon {
     height: 2rem;
@@ -71,5 +96,15 @@ const currentView = computed(() => route.name);
       fill: $secondary-dark;
     }
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

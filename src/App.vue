@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterView, useRoute } from 'vue-router';
 import { computed } from 'vue';
-import PageFooter from '@/components/common/PageFooter.vue';
+import CardButton from '@/components/common/CardButton.vue';
 import PageHeader from '@/components/common/PageHeader.vue';
 
 const route = useRoute();
@@ -12,30 +12,27 @@ const currentView = computed(() => route.name);
   <div class="baralho">
     <PageHeader />
     <RouterView />
-    <PageFooter v-if="currentView === 'home'" />
+    <CardButton v-if="currentView === 'home'" />
   </div>
 </template>
 
 <style lang="scss">
-@import './assets/scss/breakpoints';
-@import './assets/scss/colors';
-@import './assets/scss/container';
-@import './assets/scss/fonts';
-@import './assets/scss/normalize';
-@import './assets/scss/variables';
+@import '@/assets/global';
 
 .baralho {
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 100vh;
   width: 100vw;
-  background-color: $main-dark;
   font-family: $font-sans;
   color: $secondary-dark;
+  background-color: $main-dark;
 }
 
-html {
-  overflow: hidden;
+html,
+body {
+  background-color: $main-dark;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 </style>
