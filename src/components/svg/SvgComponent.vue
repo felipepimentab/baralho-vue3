@@ -3,8 +3,9 @@ import { defineProps, toRefs, computed, defineAsyncComponent } from 'vue';
 
 const props = defineProps<{
   icon: String,
+  title: String,
 }>();
-const { icon } = toRefs(props);
+const { icon, title } = toRefs(props);
 
 const IconComponent = computed(
   () => defineAsyncComponent(() => import(`./icons/Icon${icon.value}.vue`))
@@ -12,5 +13,5 @@ const IconComponent = computed(
 </script>
 
 <template>
-  <component :is="IconComponent" />
+  <component :is="IconComponent" :title="title ? title : icon"/>
 </template>

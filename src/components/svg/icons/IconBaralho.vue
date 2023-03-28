@@ -1,9 +1,15 @@
+<script lang="ts" setup>
+import { defineProps, toRefs } from 'vue';
+
+const props = defineProps<{
+  title: String,
+}>();
+const { title } = toRefs(props);
+</script>
+
 <template>
-<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
-
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
 <svg width="800px" height="800px" viewBox="-4.02 0 62.021 62.021" id="Layer_1" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-
+  <title>{{ title }}</title>
 <g id="Back_Card">
 
 <g>

@@ -23,6 +23,7 @@ const currentView = computed(() => route.name);
         >
         <SvgComponent
           icon="Help"
+          title="Ajuda"
           class="header__help__icon"
         />
       </router-link>
@@ -33,6 +34,7 @@ const currentView = computed(() => route.name);
       >
         <SvgComponent
           icon="Return"
+          title="Voltar"
           class="header__help__icon"
         />
       </router-link>

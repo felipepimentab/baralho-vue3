@@ -1,8 +1,18 @@
+<script lang="ts" setup>
+import { defineProps, toRefs } from 'vue';
+
+const props = defineProps<{
+  title: String,
+}>();
+const { title } = toRefs(props);
+</script>
+
 <template>
-	<svg height="800px" width="800px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	viewBox="0 0 512 512"  xml:space="preserve">
+<svg height="800px" width="800px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+viewBox="0 0 512 512"  xml:space="preserve">
+	<title>{{ title }}</title>
 	<g>
-	<path class="st0" d="M398.324,0H113.676C94.44,0,78.844,15.595,78.844,34.832v442.335c0,19.237,15.596,34.832,34.833,34.832
+		<path class="st0" d="M398.324,0H113.676C94.44,0,78.844,15.595,78.844,34.832v442.335c0,19.237,15.596,34.832,34.833,34.832
 		h284.648c19.237,0,34.832-15.595,34.832-34.832V34.832C433.156,15.595,417.561,0,398.324,0z M156.843,122.11h-14.779
 		c2.289-6.313,3.497-13.698,4.054-21.458c-3.233,3.872-8.095,6.356-13.532,6.356c-9.72,0-17.633-7.904-17.633-17.638
 		c0-9.716,7.912-17.62,17.633-17.62c0.965,0,1.918,0.076,2.846,0.22c-2.268-2.952-3.608-6.653-3.608-10.669

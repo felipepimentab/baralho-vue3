@@ -1,6 +1,16 @@
+<script lang="ts" setup>
+import { defineProps, toRefs } from 'vue';
+
+const props = defineProps<{
+  title: String,
+}>();
+const { title } = toRefs(props);
+</script>
+
 <template>
-	<svg height="800px" width="800px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	viewBox="0 0 512 512"  xml:space="preserve">
+<svg height="800px" width="800px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+viewBox="0 0 512 512"  xml:space="preserve">
+	<title>{{ title }}</title>
 	<g>
 		<path class="st0" d="M398.321,0H113.678C94.441,0,78.846,15.595,78.846,34.832v442.335c0,19.237,15.595,34.832,34.832,34.832
 	h284.643c19.237,0,34.833-15.595,34.833-34.832V34.832C433.154,15.595,417.558,0,398.321,0z M152.4,117.55

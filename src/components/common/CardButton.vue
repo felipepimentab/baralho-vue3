@@ -17,6 +17,7 @@ function draw() {
     >
       <SvgComponent
       icon="Draw"
+      title="Tirar carta"
       class="button__draw__icon"
       />
       <span class="button__draw__text">
