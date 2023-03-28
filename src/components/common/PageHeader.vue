@@ -41,12 +41,7 @@ const currentView = computed(() => route.name);
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/scss/breakpoints';
-@import '../../assets/scss/colors';
-@import '../../assets/scss/container';
-@import '../../assets/scss/fonts';
-@import '../../assets/scss/normalize';
-@import '../../assets/scss/variables';
+@import '@/assets/global';
 .header {
   width: 100%;
   padding: 1rem $side-spacing;

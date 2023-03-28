@@ -20,12 +20,8 @@ const cards = useCardStore().playedCards;
 </template>
 
 <style lang="scss" scoped>
-@import '../assets/scss/breakpoints';
-@import '../assets/scss/colors';
-@import '../assets/scss/container';
-@import '../assets/scss/fonts';
-@import '../assets/scss/normalize';
-@import '../assets/scss/variables';
+@import '@/assets/global';
+
 .main {
   min-height: 100%;
   height: fit-content;

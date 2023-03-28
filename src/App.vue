@@ -3,6 +3,7 @@ import { RouterView, useRoute } from 'vue-router';
 import { computed } from 'vue';
 import CardButton from '@/components/common/CardButton.vue';
 import PageHeader from '@/components/common/PageHeader.vue';
+import PageFooter from '@/components/common/PageFooter.vue';
 
 const route = useRoute();
 const currentView = computed(() => route.name);
@@ -13,6 +14,7 @@ const currentView = computed(() => route.name);
     <PageHeader />
     <RouterView />
     <CardButton v-if="currentView === 'home'" />
+    <PageFooter />
   </div>
 </template>
 

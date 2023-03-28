@@ -36,12 +36,8 @@ const cards = useCardStore().playedCards;
 </template>
 
 <style lang="scss" scoped>
-@import '../assets/scss/breakpoints';
-@import '../assets/scss/colors';
-@import '../assets/scss/container';
-@import '../assets/scss/fonts';
-@import '../assets/scss/normalize';
-@import '../assets/scss/variables';
+@import '@/assets/global';
+
 .cards {
   margin: 0 $side-spacing 78px;
   display: flex;
